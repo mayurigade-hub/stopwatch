@@ -4,9 +4,10 @@
   box-sizing: border-box;
 }
 
+/* Page layout */
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('https://wallpapers.com/images/hd/solid-light-purple-brvl15pyd3o3gjnw.jpg');
   background-position: center;
   background-size: cover;
@@ -14,29 +15,31 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
 }
 
 /* Stopwatch container */
 .container {
-  padding: 2.2rem;
-  min-width: 380px;
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
   text-align: center;
   border-radius: 18px;
   background-color: rgba(0, 0, 0, 0.65);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
 /* Heading */
 h1 {
   color: #ffffff;
-  font-size: 2.3rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   margin-bottom: 0.8rem;
 }
 
 /* Time display */
 .time {
-  padding: 1.6rem 0;
-  font-size: 3.2rem;
+  padding: 1.4rem 0;
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
   font-weight: 600;
   letter-spacing: 3px;
   color: #ffffff;
@@ -44,24 +47,39 @@ h1 {
 
 /* Buttons */
 button {
-  padding: 0.65rem 1.7rem;
-  margin: 0.4rem;
-  font-size: 1.05rem;
+  padding: 0.7rem 1.6rem;
+  margin: 0.35rem;
+  font-size: clamp(0.9rem, 3vw, 1.05rem);
   border-radius: 14px;
   border: 1px solid #ffffff;
   background: transparent;
   color: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 90px;
 }
 
-/* Button hover */
+/* Hover & active */
 button:hover {
   background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
 }
 
-/* Button active */
 button:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.6rem;
+  }
+
+  .time {
+    letter-spacing: 2px;
+  }
+
+  button {
+    width: 100%;
+    margin: 0.4rem 0;
+  }
 }
